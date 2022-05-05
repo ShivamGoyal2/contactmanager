@@ -15,15 +15,15 @@ function App() {
 
   useEffect(() => {
    const retrieveData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-   console.log("fetch", retrieveData);
+  //  console.log("fetch", retrieveData);
    setContacts(retrieveData);
-   console.log("cont", contacts);
+  //  console.log("cont", contacts);
   }, []);
 
   useEffect(() => {
     if(contacts.length !== 0)
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-    console.log("again", contacts);
+    // console.log("again", contacts);
   }, [contacts]);
   
   return (
