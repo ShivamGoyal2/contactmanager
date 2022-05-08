@@ -9,22 +9,21 @@ function App() {
 
   const LOCAL_STORAGE_KEY = "contacts";
   const AddContactHandler = (contact) => {
-    // console.log(contact);
     setContacts([...contacts, contact]);
   }
 
   useEffect(() => {
-   const retrieveData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  //  console.log("fetch", retrieveData);
-   setContacts(retrieveData);
-  //  console.log("cont", contacts);
-  }, []);
-
-  useEffect(() => {
     if(contacts.length !== 0)
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-    // console.log("again", contacts);
   }, [contacts]);
+  
+  useEffect(() => {
+   const retrieveData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+   if(retrieveData)
+   setContacts(retrieveData);
+  }, []);
+
+  
   
   return (
     <div>
