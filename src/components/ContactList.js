@@ -11,7 +11,7 @@ const deleteContact = () => {
     return (
         <div>
             {
-                props.contacts.map((item) => {
+                props !== null ? props.contacts.map((item) => {
                     return (
                     <div style={{border: '2px solid black', padding: '10px', margin : '5px'}} >
                         <div style={{float : 'left', padding: '3px', margin : '5px'}}>
@@ -26,7 +26,7 @@ const deleteContact = () => {
                         </div>
                     </div>
                     )
-                })
+                }) : <div>No data</div>
             }
         </div>
     );
